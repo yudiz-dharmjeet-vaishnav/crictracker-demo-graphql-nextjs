@@ -1,21 +1,34 @@
 import React from 'react'
+import App from 'next/app'
 import { ApolloProvider } from '@apollo/client'
 import PropTypes from 'prop-types'
 
-import client from '@configs/apollo-client'
 import '@styles/globals.css'
+import MainLayout from 'src/layouts/MainLayout'
+import client from '@configs/apollo-client'
+import { GET_MENU_TREE } from '@graphql/home/home.query'
 
-function MyApp ({ Component, pageProps }) {
+export default function MyApp ({ Component, pageProps, menu }) {
   return (
     <ApolloProvider client={client}>
-      <Component {...pageProps} />
+      <MainLayout menu={menu}>
+        <Component {...pageProps} />
+      </MainLayout>
     </ApolloProvider>
   )
 }
 
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object
+  pageProps: PropTypes.object,
+  menu: PropTypes.array
 }
 
-export default MyApp
+MyApp.getInitialProps = async (appContext) => {
+  const appProps = await App.getInitialProps(appContext)
+  const { data } = await client.query({
+    query: GET_MENU_TREE
+  })
+
+  return { ...appProps, menu: data.getMenuTree.aResults }
+}
