@@ -1,19 +1,30 @@
 import React from 'react'
-import { useQuery } from '@apollo/client'
 
-import styles from '../styles/Home.module.css'
-import { GET_MENU_TREE } from '../graphql/home/home.query'
+import styles from '@styles/pages/Home.module.css'
+import client from '@configs/apollo-client'
+import { GET_MENU_TREE } from '@graphql/home/home.query'
 
-export default function Home () {
-  const { loading, error, data } = useQuery(GET_MENU_TREE)
+export default function Home (props) {
 
-  if (loading) return 'Loading...'
-  if (error) return `Error! ${error.message}`
+  const { menu } = props
 
-  console.log(data)
+  console.log('menu', menu)
 
   return (
     <div className={styles.container}>
+      <h1>Hello</h1>
     </div>
   )
+}
+
+export async function getServerSideProps() {
+  const { data } = await client.query({
+    query: GET_MENU_TREE
+  });
+
+  return {
+    props: {
+      menu: data.getMenuTree.aResults
+    }
+  }
 }
