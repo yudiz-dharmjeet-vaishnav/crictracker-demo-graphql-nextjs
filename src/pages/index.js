@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import styles from '@styles/pages/Home.module.css'
+import styles from '@styles/pages/Home.module.scss'
 
 export default function Home () {
   return (

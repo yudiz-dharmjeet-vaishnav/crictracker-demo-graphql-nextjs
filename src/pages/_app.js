@@ -3,7 +3,7 @@ import App from 'next/app'
 import { ApolloProvider } from '@apollo/client'
 import PropTypes from 'prop-types'
 
-import '@styles/globals.css'
+import '@styles/globals.scss'
 import MainLayout from 'src/layouts/MainLayout'
 import client from '@configs/apollo-client'
 import { GET_MENU_TREE } from '@graphql/home/home.query'

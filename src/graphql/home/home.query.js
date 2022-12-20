@@ -5,11 +5,8 @@ export const GET_MENU_TREE = gql`
     getMenuTree {
       aResults {
         _id
-        bIsMulti
-        eMenuType
         eStatus
         sTitle
-        sUrl
       }
     }
   }
