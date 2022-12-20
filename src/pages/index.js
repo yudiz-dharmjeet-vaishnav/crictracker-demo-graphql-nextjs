@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import styles from '@styles/pages/Home.module.css'
-import client from '@configs/apollo-client'
-import { GET_MENU_TREE } from '@graphql/home/home.query'
+import styles from '../styles/pages/Home.module.css'
+import client from '../config/apollo-client'
+import { GET_MENU_TREE } from '../graphql/home/home.query'
 
 export default function Home (props) {
   const { menu } = props
