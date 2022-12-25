@@ -18,12 +18,6 @@ export default function MyApp ({ Component, pageProps, menu }) {
   )
 }
 
-MyApp.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object,
-  menu: PropTypes.array
-}
-
 MyApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext)
   const { data } = await client.query({
@@ -31,4 +25,10 @@ MyApp.getInitialProps = async (appContext) => {
   })
 
   return { ...appProps, menu: data.getMenuTree.aResults }
+}
+
+MyApp.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.object,
+  menu: PropTypes.array
 }
