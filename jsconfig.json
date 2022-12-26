@@ -7,7 +7,8 @@
       "@pages/*": ["src/pages/*"],
       "@configs/*": ["src/config/*"],
       "@styles/*": ["src/styles/*"],
-      "@graphql/*": ["src/graphql/*"]
+      "@graphql/*": ["src/graphql/*"],
+      "@assets/*": ["src/assets/*"]
     }
   }
 }
