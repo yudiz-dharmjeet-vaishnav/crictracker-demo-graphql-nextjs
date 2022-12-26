@@ -15,7 +15,9 @@ function Navbar (props) {
     <div className={styles.header}>
       <div className={styles.navbar1}>
           <div className={styles.navbar1_left}>
-            <Image className={styles.logo} src={logo} width={200} />
+            <Link href='/'>
+              <Image className={styles.logo} src={logo} width={200} alt='Logo' />
+            </Link>
           </div>
           <div className={styles.navbar1_right}>
             <button>Sign In</button>
@@ -26,9 +28,6 @@ function Navbar (props) {
       </div>
       <div className={styles.navbar2}>
           <ul>
-            <li>
-              <Link href='/'>Home</Link>
-            </li>
             {menu.map((item) => (
               <li key={item._id}>
                 <Link href='/cricketnews'>{item.sTitle}</Link>

@@ -8,7 +8,8 @@
       "@configs/*": ["src/config/*"],
       "@styles/*": ["src/styles/*"],
       "@graphql/*": ["src/graphql/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@layouts/*": ["src/layouts/*"]
     }
   }
 }
