@@ -1,0 +1,47 @@
+.footer {
+  background-color: #323842;
+  border-radius: 20px 20px 0 0;
+
+  .footer_container {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    .footer_top {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      gap: 8px;
+      
+      .footerItem {
+        display: block;
+        width: 100%;
+        color: white;
+        margin-bottom: 10px;
+
+        h2 {
+          display: inline-block;
+          font-size: 14px;
+          padding: 8px 12px;
+          background-color: #323842;
+        }
+
+        hr {
+          margin-top: -17px;
+          color: rgb(182, 182, 182);
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+          margin-top: 14px;
+
+          li {
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
