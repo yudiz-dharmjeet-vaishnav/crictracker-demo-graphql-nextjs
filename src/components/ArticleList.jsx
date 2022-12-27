@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import PropTypes from 'prop-types'
 import { BsCalendarEvent, BsStopwatch } from 'react-icons/bs'
 
@@ -9,6 +10,8 @@ import moment from 'node_modules/moment/moment'
 function ArticleList (props) {
   const { homePageArticleData } = props
 
+  const router = useRouter()
+
   const preSignedUrl = 'https://crictracker-admin-panel-local-dev-08032022.s3.ap-south-1.amazonaws.com/'
 
   const [data, setData] = useState([])
@@ -16,6 +19,10 @@ function ArticleList (props) {
   useEffect(() => {
     setData(homePageArticleData?.aResults)
   }, [])
+
+  function goToArticle (article) {
+    router.push(`/article/${article._id}`)
+  }
 
   return (
     <div className={styles.articleList}>
@@ -26,7 +33,7 @@ function ArticleList (props) {
           {item.aArticle.map((article) => (
             <Fragment key={article._id}>
               {article.sType === 'nBig' && (
-                <div className={styles.big_article}>
+                <div className={styles.big_article} onClick={() => goToArticle(article)}>
                   <Image src={`${preSignedUrl}${article.oImg.sUrl}`} alt={article.oImg.sText} width={400} height={400} />
                   <h2>{article.sSrtTitle}</h2>
                   <div className={styles.date}>
@@ -39,7 +46,7 @@ function ArticleList (props) {
               )}
 
               {article.sType === 'nSmall' && (
-                <div className={styles.small_article}>
+                <div className={styles.small_article} onClick={() => goToArticle(article)}>
                   <Image src={`${preSignedUrl}${article.oImg.sUrl}`} alt={article.oImg.sText} width={100} height={100} />
                   <div className={styles.small_article_right}>
                     <h2>{article.sSrtTitle}</h2>

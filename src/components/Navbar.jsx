@@ -30,7 +30,7 @@ function Navbar (props) {
           <ul>
             {menu.map((item) => (
               <li key={item._id}>
-                <Link href='/cricketnews'>{item.sTitle}</Link>
+                <Link href='/'>{item.sTitle}</Link>
               </li>
             ))}
           </ul>

@@ -20,8 +20,7 @@ function HomeLayout ({ children }) {
 }
 
 HomeLayout.propTypes = {
-  children: PropTypes.object,
-  menu: PropTypes.array
+  children: PropTypes.object
 }
 
 export default HomeLayout
