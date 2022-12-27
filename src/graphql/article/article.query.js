@@ -8,7 +8,7 @@ export const GET_ARTICLE_FRONT = gql`
       sSubtitle
       sContent
       dPublishDisplayDate
-      oTImg {
+      oImg {
         sUrl
         sText
       }
