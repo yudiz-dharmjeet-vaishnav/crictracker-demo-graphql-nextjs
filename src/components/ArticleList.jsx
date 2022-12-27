@@ -21,7 +21,7 @@ function ArticleList (props) {
   return (
     <div className={styles.articleList}>
       {data.map((item, index) => (
-        <Fragment key={index}>
+        <div key={index} className={styles.article}>
           <h2 className={styles.articleCategory}>{item.sName}</h2>
           <hr />
           {item.aArticle.map((article) => (
@@ -38,9 +38,24 @@ function ArticleList (props) {
                   </div>
                 </div>
               )}
+
+              {article.sType === 'nSmall' && (
+                <div className={styles.small_article}>
+                  <Image src={`${preSignedUrl}${article.oImg.sUrl}`} width={100} height={100} />
+                  <div className={styles.small_article_right}>
+                    <h2>{article.sSrtTitle}</h2>
+                    <div className={styles.date}>
+                      <BsCalendarEvent />
+                      <h4>{article.dPublishDisplayDate}</h4>
+                      <BsStopwatch />
+                      <h4>{article.nDuration} Min</h4>
+                    </div>
+                  </div>
+                </div>
+              )}
             </Fragment>
           ))}
-        </Fragment>
+        </div>
       ))}
     </div>
   )
