@@ -12,6 +12,20 @@ export const GET_MENU_TREE = gql`
   }
 `
 
+export const GET_FRONT_FOOTER = gql`
+  query GetFrontFooter {
+    getFrontFooter {
+      _id
+      eType
+      aResults {
+        _id
+        sTitle
+        sUrl
+      }
+    }
+  }
+`
+
 export const GET_HOME_PAGE_ARTICLE = gql`
   query GetHomePageArticle {
     getHomePageArticle {

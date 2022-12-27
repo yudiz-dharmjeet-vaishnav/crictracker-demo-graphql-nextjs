@@ -16,8 +16,6 @@ function ArticleList (props) {
     setData(homePageArticleData?.aResults)
   }, [])
 
-  console.log('data', data)
-
   return (
     <div className={styles.articleList}>
       {data.map((item, index) => (
@@ -28,7 +26,7 @@ function ArticleList (props) {
             <Fragment key={article._id}>
               {article.sType === 'nBig' && (
                 <div className={styles.big_article}>
-                  <Image src={`${preSignedUrl}${article.oImg.sUrl}`} width={400} height={400} />
+                  <Image src={`${preSignedUrl}${article.oImg.sUrl}`} alt={article.oImg.sText} width={400} height={400} />
                   <h2>{article.sSrtTitle}</h2>
                   <div className={styles.date}>
                     <BsCalendarEvent />
@@ -41,7 +39,7 @@ function ArticleList (props) {
 
               {article.sType === 'nSmall' && (
                 <div className={styles.small_article}>
-                  <Image src={`${preSignedUrl}${article.oImg.sUrl}`} width={100} height={100} />
+                  <Image src={`${preSignedUrl}${article.oImg.sUrl}`} alt={article.oImg.sText} width={100} height={100} />
                   <div className={styles.small_article_right}>
                     <h2>{article.sSrtTitle}</h2>
                     <div className={styles.date}>
