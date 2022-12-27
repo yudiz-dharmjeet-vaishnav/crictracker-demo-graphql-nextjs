@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { BsCalendarEvent, BsStopwatch } from 'react-icons/bs'
 
 import styles from '@styles/components/ArticleList.module.scss'
+import moment from 'node_modules/moment/moment'
 
 function ArticleList (props) {
   const { homePageArticleData } = props
@@ -30,7 +31,7 @@ function ArticleList (props) {
                   <h2>{article.sSrtTitle}</h2>
                   <div className={styles.date}>
                     <BsCalendarEvent />
-                    <h4>{article.dPublishDisplayDate}</h4>
+                    <h4>{moment(article.dPublishDisplayDate).format('ll')}</h4>
                     <BsStopwatch />
                     <h4>{article.nDuration} Min</h4>
                   </div>
@@ -44,7 +45,7 @@ function ArticleList (props) {
                     <h2>{article.sSrtTitle}</h2>
                     <div className={styles.date}>
                       <BsCalendarEvent />
-                      <h4>{article.dPublishDisplayDate}</h4>
+                      <h4>{moment(article.dPublishDisplayDate).format('ll')}</h4>
                       <BsStopwatch />
                       <h4>{article.nDuration} Min</h4>
                     </div>
